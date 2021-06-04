@@ -1,0 +1,177 @@
+<div class="mt-5 md:mt-0 md:col-span-2">
+  <form action="#" method="POST">
+    <div class="shadow overflow-hidden sm:rounded-md">
+      <div class="px-4 py-5 bg-white sm:p-6">
+        <div class="grid grid-cols-6 gap-6">
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="first_name"
+              class="block text-sm font-medium text-gray-700"
+              >Name</label
+            >
+            <input
+              type="text"
+              name="name"
+              autocomplete="given-name"
+              [(ngModel)]="name"
+              class="
+                mt-1
+                focus:ring-indigo-500
+                focus:border-indigo-500
+                block
+                w-full
+                shadow-sm
+                sm:text-sm
+                border-gray-300
+                rounded-md
+              "
+            />
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="last_name"
+              class="block text-sm font-medium text-gray-700"
+              >Last name</label
+            >
+            <input
+              type="text"
+              name="lastname"
+              autocomplete="family-name"
+              [(ngModel)]="lastname"
+              class="
+                mt-1
+                focus:ring-indigo-500
+                focus:border-indigo-500
+                block
+                w-full
+                shadow-sm
+                sm:text-sm
+                border-gray-300
+                rounded-md
+              "
+            />
+          </div>
+
+          <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+            <label for="city" class="block text-sm font-medium text-gray-700"
+              >Gender</label
+            >
+            <div class="flex flex-row items-center space-x-2">
+              Male&nbsp;
+              <input
+                type="radio"
+                name="gender"
+                [(ngModel)]="gender"
+                [value]="1"
+              />
+              &nbsp;&nbsp;Female
+              <input
+                type="radio"
+                name="gender"
+                [(ngModel)]="gender"
+                [value]="2"
+              />
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+            <label for="city" class="block text-sm font-medium text-gray-700"
+              >Status</label
+            >
+            <div class="flex flex-row items-center space-x-2">
+              Active &nbsp;
+              <input
+                type="radio"
+                name="status"
+                [(ngModel)]="status"
+                [value]="1"
+              />
+              &nbsp;&nbsp;Inactive
+              <input
+                type="radio"
+                name="status"
+                [(ngModel)]="status"
+                [value]="2"
+              />
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+            <label
+              for="postal_code"
+              class="block text-sm font-medium text-gray-700"
+              >Birth</label
+            >
+            <input type="date" name="birth" [(ngModel)]="birth" />
+          </div>
+        </div>
+      </div>
+      <div
+        class="
+          px-4
+          py-3
+          bg-gray-50
+          text-right
+          sm:px-6
+          flex flex-row
+          space-x-3
+          justify-end
+        "
+      >
+        <span class="hidden sm:block">
+          <button
+            *ngIf="id > 0"
+            type="button"
+            (click)="deleteUser()"
+            class="
+              inline-flex
+              items-center
+              px-4
+              py-2
+              border border-gray-300
+              rounded-md
+              shadow-sm
+              text-sm
+              font-medium
+              text-red-900
+              bg-red-300
+              hover:bg-gray-50
+              focus:outline-none
+              focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+            "
+          >
+            <i class="fas fa-trash-alt px-2"></i>
+            Delete
+          </button>
+        </span>
+
+        <span class="hidden sm:block">
+          <button
+            type="button"
+            (click)="saveUser()"
+            class="
+              inline-flex
+              items-center
+              px-4
+              py-2
+              border border-gray-300
+              rounded-md
+              shadow-sm
+              text-sm
+              font-medium
+              text-gray-700
+              bg-white
+              hover:bg-gray-50
+              focus:outline-none
+              focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+            "
+          >
+            <i class="fas fa-save px-2"></i>
+            Save
+          </button>
+        </span>
+      </div>
+    </div>
+  </form>
+</div>

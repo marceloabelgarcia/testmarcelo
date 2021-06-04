@@ -1,0 +1,182 @@
+<table class="min-w-full divide-y divide-gray-200">
+  <thead class="bg-gray-50">
+    <tr>
+      <th
+        scope="col"
+        class="
+          px-6
+          py-3
+          text-left text-xs
+          font-medium
+          text-gray-500
+          uppercase
+          tracking-wider
+        "
+      >
+        <span
+          [ngClass]="{
+            visible: sortfield == 'name',
+            invisible: sortfield != 'name'
+          }"
+        >
+          <i *ngIf="direction.name" class="fas fa-arrow-up"></i>
+          <i *ngIf="!direction.name" class="fas fa-arrow-down"></i>
+        </span>
+        <button
+          class="outline-none focus:outline-none"
+          (click)="sorter('name')"
+        >
+          Name
+        </button>
+      </th>
+      <th
+        scope="col"
+        class="
+          px-6
+          py-3
+          text-left text-xs
+          font-medium
+          text-gray-500
+          uppercase
+          tracking-wider
+        "
+      >
+        <span
+          [ngClass]="{
+            visible: sortfield == 'birth',
+            invisible: sortfield != 'birth'
+          }"
+        >
+          <i *ngIf="direction.birth" class="fas fa-arrow-up"></i>
+          <i *ngIf="!direction.birth" class="fas fa-arrow-down"></i>
+        </span>
+        <button
+          class="outline-none focus:outline-none"
+          (click)="sorter('birth')"
+        >
+          Birth
+        </button>
+      </th>
+      <th
+        scope="col"
+        class="
+          px-6
+          py-3
+          text-left text-xs
+          font-medium
+          text-gray-500
+          uppercase
+          tracking-wider
+        "
+      >
+        <span
+          [ngClass]="{
+            visible: sortfield == 'status',
+            invisible: sortfield != 'status'
+          }"
+        >
+          <i *ngIf="direction.status" class="fas fa-arrow-up"></i>
+          <i *ngIf="!direction.status" class="fas fa-arrow-down"></i>
+        </span>
+        <button
+          class="outline-none focus:outline-none"
+          (click)="sorter('status')"
+        >
+          Status
+        </button>
+      </th>
+      <th
+        scope="col"
+        class="
+          px-6
+          py-3
+          text-left text-xs
+          font-medium
+          text-gray-500
+          uppercase
+          tracking-wider
+        "
+      >
+        <span
+          [ngClass]="{
+            visible: sortfield == 'gender',
+            invisible: sortfield != 'gender'
+          }"
+        >
+          <i *ngIf="direction.gender" class="fas fa-arrow-up"></i>
+          <i *ngIf="!direction.gender" class="fas fa-arrow-down"></i>
+        </span>
+        <button
+          class="outline-none focus:outline-none"
+          (click)="sorter('gender')"
+        >
+          Gender
+        </button>
+      </th>
+      <th scope="col" class="relative px-6 py-3">
+        <span class="sr-only">Edit</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="bg-white divide-y divide-gray-200">
+    <tr *ngFor="let user of users">
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 h-10 w-10">
+            <img
+              class="h-10 w-10 rounded-full"
+              src="./assets/default.png"
+              alt=""
+            />
+          </div>
+          <div class="ml-4">
+            <div class="text-sm font-medium text-gray-900">
+              {{ user.name }} {{ user.lastname }}
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="text-sm text-gray-900">
+          <i class="fas fa-birthday-cake text-gray-400 px-2"></i>
+          {{ user.birth.date | date: longDate }}
+        </div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">
+        <span
+          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
+          [ngClass]="{
+            'bg-green-600 text-green-200': user.status === 1,
+            'bg-gray-300 text-gray-500': user.status !== 1
+          }"
+        >
+          {{ user.status | status }}
+        </span>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        {{ user.gender | gender }}
+      </td>
+      <td
+        class="
+          flex flex-row
+          justify-end
+          items-center
+          px-6
+          py-4
+          whitespace-nowrap
+          text-right text-sm
+          font-medium
+        "
+      >
+        <button
+          [routerLink]="['/user/', user.id]"
+          class="text-indigo-600 hover:text-indigo-900"
+        >
+          <i class="fas fa-edit text-gray-400 pl-2"></i>&nbsp;Edit
+        </button>
+      </td>
+    </tr>
+
+    <!-- More people... -->
+  </tbody>
+</table>
